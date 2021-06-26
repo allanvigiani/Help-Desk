@@ -13,7 +13,7 @@
       }
 
       .link {
-        margin-left: 100px;
+          margin-left: 40px;
       }
 
     </style>
@@ -34,10 +34,10 @@
         <div class="card-login">
           <div class="card">
             <div class="card-header">
-              Login Help Desk
+              Cadastro Help Desk
             </div>
             <div class="card-body">
-              <form action="scripts/validar_login.php" method="post"> <!-- action = destino de um submit do forumlário -->
+              <form action="scripts/validar_cadastro.php" method="post"> <!-- action = destino de um submit do forumlário -->
                 <!-- 
                   GET -> passa os parâmetro via url
                   POST -> anexa os dados (parâmetros) na própria requisição
@@ -48,59 +48,50 @@
                 <div class="form-group">
                   <input type="password" name="password" id="password" class="form-control" placeholder="Senha">
                 </div>
-
+                <!-- TODO 
+                    1 - Verificar se o usuário já cadastrado
+                    3 - Cadastrar com sucesso.
+                 -->
                 <?php
                   # Super global $_GET
                   # isset() -> verifica se um valor específico está setado dentro da super global GET
-                  if(isset($_GET['login']) && $_GET["login"] == "erro") {
+                  if(isset($_GET['cadastro']) && $_GET["cadastro"] == "success") {
 
                 ?>
 
-                  <div class="alert alert-danger text-center mb-3">
-                    Usuário ou senha inválido(s).
+                  <div class="alert alert-success text-center mb-3">
+                    Cadastrado com sucesso.
                   </div>
 
                 <?php };?>
 
                 <?php 
 
-                  if (isset($_GET['login']) && $_GET["login"] == "erro_session") {
+                  if (isset($_GET['cadastro']) && $_GET["cadastro"] == "empty") {
 
                 ?>
 
                   <div class="alert alert-warning text-center mb-3">
-                    Você deve fazer login.
+                    Preencha todos os campos.
                   </div>
 
                 <?php } ?>
 
                 <?php 
 
-                  if (isset($_GET['login']) && $_GET['login'] == "erro_adm") {
+                  if (isset($_GET['cadastro']) && $_GET['cadastro'] == "exist") {
                 
                 ?>
                 
-                  <div class="alert alert-secondary text-center mb-3">
-                    Você não tem autorização.
+                  <div class="alert alert-danger text-center mb-3">
+                    Email já cadastrado.
                   </div>
 
                 <?php }; ?>
 
-                <?php 
+                <button class="btn btn-lg btn-info btn-block" type="submit">Cadastrar</button>
+                <a class="link" href="index.php"><button type="button" class="btn btn-link mt-4 text-center">Já é cadastrado? Faça Login</button></a>
 
-                  if (isset($_GET['logoff']) && $_GET['logoff'] == "logoff") {
-                
-                ?>
-                
-                  <div class="alert alert-success text-center mb-3">
-                    Logoff realizado com sucesso.
-                  </div>
-
-                <?php }; ?>
-
-                <button class="btn btn-lg btn-info btn-block" type="submit">Entrar</button>
-                <button class="btn btn-lg btn-danger btn-block" onclick="limpar_campos()">Limpar</button>
-                <a class="link" href="cadastro.php"><button type="button" class="btn btn-link mt-4 text-center">Cadastre-se</button></a>
               </form>
             </div>
           </div>

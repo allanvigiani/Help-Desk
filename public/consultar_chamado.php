@@ -1,5 +1,6 @@
 <?php
   require_once("../scripts/validar_acesso.php");
+  require_once("../scripts/retornar_chamados.php");
 ?>
 
 <html>
@@ -43,23 +44,33 @@
             
             <div class="card-body">
               
-              <div class="card mb-3 bg-light">
-                <div class="card-body">
-                  <h5 class="card-title">Título do chamado...</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Categoria</h6>
-                  <p class="card-text">Descrição do chamado...</p>
+              <?php 
+              
+                foreach ($chamados as $chamado) {
 
+              ?>
+
+                <?php 
+                
+                  $dados = explode('|', $chamado);
+
+                  if (count($dados) < 3) {
+                    continue;
+                  }
+
+                ?>
+
+                <div class="card mb-3 bg-light">
+                  <div class="card-body">
+                    <h5 class="card-title"><?= $dados[0]; ?></h5>
+                    <h6 class="card-subtitle mb-2 text-muted"><?= $dados[1]; ?></h6>
+                      <p class="card-text"><?= $dados[2]; ?></p>
+                  </div>
                 </div>
-              </div>
 
-              <div class="card mb-3 bg-light">
-                <div class="card-body">
-                  <h5 class="card-title">Título do chamado...</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Categoria</h6>
-                  <p class="card-text">Descrição do chamado...</p>
+              <?php }; ?>
 
-                </div>
-              </div>
+              
 
               <div class="row mt-5">
                 <div class="col-6">

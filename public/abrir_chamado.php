@@ -88,13 +88,7 @@
                       Preencha todos os campos.
                     </div>
                   
-                  <?php } else {?>
-                      
-                    <div class="alert alert-warning text-center">
-                        Não foi possível registrar o chamado.
-                    </div>
-                      
-                  <?php }; ?>
+                  <?php } ?>
 
                   <div class="row mt-5">
                     <div class="col-6">
