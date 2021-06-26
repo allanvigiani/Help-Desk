@@ -1,5 +1,5 @@
 <?php
-  require_once("scripts/validar_acesso.php");
+  require_once("../scripts/validar_acesso.php");
 ?>
 
 <html>
@@ -22,12 +22,12 @@
 
     <nav class="navbar navbar-dark bg-dark">
       <a class="navbar-brand" href="#">
-        <img src="img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        <img src="../img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
         Help Desk
       </a>
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link lg" href="scripts/logoff.php">SAIR</a>
+          <a class="nav-link lg" href="../scripts/logoff.php">SAIR</a>
         </li>
       </ul>
     </nav>

@@ -36,10 +36,10 @@
     if ($usuario_autenticado) {
         $_SESSION["autenticado"] = 'SIM';
         $_SESSION["email"] = $email_usuario;
-        header('Location: home.php');
+        header('Location: ../public/home.php');
     }else {
         # header('Location: para onde será redirecionado') -> redirecionamento
-        header('Location: index.php?login=erro');
+        header('Location: ../index.php?login=erro');
         $_SESSION["autenticado"] = 'NAO';
     };
 

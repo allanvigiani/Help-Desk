@@ -1,5 +1,5 @@
 <?php
-  require_once("scripts/validar_acesso.php");
+  require_once("../scripts/validar_acesso.php");
 ?>
 
 <html>
@@ -23,12 +23,12 @@
 
   <nav class="navbar navbar-dark bg-dark">
     <a class="navbar-brand" href="#">
-      <img src="img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      <img src="../img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
       Help Desk
     </a>
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link lg" href="scripts/logoff.php">SAIR</a>
+        <a class="nav-link lg" href="../scripts/logoff.php">SAIR</a>
       </li>
     </ul>
   </nav>
@@ -45,15 +45,16 @@
             <div class="row">
               <div class="col">
 
-                <form>
+                <form method="post" action="../scripts/validar_chamado.php">
                   <div class="form-group">
                     <label>Título</label>
-                    <input type="text" class="form-control" placeholder="Título">
+                    <input type="text" class="form-control" name="titulo" placeholder="Título">
                   </div>
 
                   <div class="form-group">
                     <label>Categoria</label>
-                    <select class="form-control">
+                    <select class="form-control" name="categoria">
+                      <option value="0">---Selecione uma categoria---</option>
                       <option>Criação Usuário</option>
                       <option>Impressora</option>
                       <option>Hardware</option>
@@ -64,8 +65,36 @@
 
                   <div class="form-group">
                     <label>Descrição</label>
-                    <textarea class="form-control" rows="3"></textarea>
+                    <textarea class="form-control" rows="3" name="descricao"></textarea>
                   </div>
+
+                  <?php 
+
+                    if (isset($_GET['status']) && $_GET['status'] == "success") {
+                
+                  ?>
+                
+                    <div class="alert alert-success text-center mt-3">
+                      Chamado registrado com sucesso.
+                    </div>
+
+                  <?php } else if
+
+                    (isset($_GET['input']) && $_GET['input'] == "empty") { 
+                    
+                  ?>  
+
+                    <div class="alert alert-danger text-center">
+                      Preencha todos os campos.
+                    </div>
+                  
+                  <?php } else {?>
+                      
+                    <div class="alert alert-warning text-center">
+                        Não foi possível registrar o chamado.
+                    </div>
+                      
+                  <?php }; ?>
 
                   <div class="row mt-5">
                     <div class="col-6">

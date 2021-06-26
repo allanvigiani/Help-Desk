@@ -1,13 +1,6 @@
 <?php
-    session_start();
-    if (isset($_SESSION["autenticado"]) && $_SESSION["autenticado"] == "SIM") {
-      if ($_SESSION["email"] == "adm@adm.com") {
-      } else {
-        header('Location: index.php?login=erro_adm');
-      }
-    } else {
-      header('Location: index.php?login=erro_session');
-    }
+    
+    require_once("../scripts/validar_adm.php");
 
 ?>
 
@@ -31,7 +24,7 @@
 
     <nav class="navbar navbar-dark bg-dark">
       <a class="navbar-brand" href="#">
-        <img src="img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        <img src="../img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
         Help Desk
       </a>
     </nav>
@@ -51,5 +44,5 @@
         </div>
     </div>
   </body>
-  <script src="scripts/index.js"></script>
+  <script src="../scripts/index.js"></script>
 </html>

@@ -32,7 +32,7 @@
               Login Help Desk
             </div>
             <div class="card-body">
-              <form action="validar_login.php" method="post"> <!-- action = destino de um submit do forumlário -->
+              <form action="scripts/validar_login.php" method="post"> <!-- action = destino de um submit do forumlário -->
                 <!-- 
                   GET -> passa os parâmetro via url
                   POST -> anexa os dados (parâmetros) na própria requisição
