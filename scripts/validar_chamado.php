@@ -1,6 +1,6 @@
 <?php
     // Armazenar chamados em arquivos TXT
-    // TODO -> Arquivar em banco de dados (POSTEGRE)
+    // TODO -> Arquivar em banco de dados (POSTGRESQL)
     
     if ($_POST['titulo'] == "" || $_POST['categoria'] == "0" || $_POST['descricao'] == "") {
 
